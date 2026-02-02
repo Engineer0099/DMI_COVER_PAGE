@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMI Cover Page Generator</title>
+
+    <!-- Meta Data -->
+    <meta name="description" content="Generate cover pages for DMI assignments">
+    <meta name="keywords" content="cover page, DMI, assignment, PDF">
+    <meta name="author" content="DMI">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style4.css">
+</head>
+
+<body>
+
+    <!-- <div class="container">
+    <h2>Cover Page Generator</h2>
+
+    <input id="course" placeholder="Course">
+    <input id="moduleName" placeholder="Module Name">
+    <input id="moduleCode" placeholder="Module Code">
+    <input id="lecturerName" placeholder="Lecturer Name">
+    <input id="natureOfWork" placeholder="Nature of Work">
+    <input id="submissionDate" placeholder="Submission Date">
+    <input id="studentName" placeholder="Student Name">
+    <input id="regNo" placeholder="Registration Number">
+    <input id="stream" placeholder="Stream">
+
+    <button onclick="generatePDF()">Generate PDF</button>
+    </div> -->
+    <div class="app">
+
+    <h1><i class="fa-solid fa-file-lines"></i> Cover Page Generator</h1>
+
+    <form id="coverForm">
+
+        <div class="field">
+            <label><i class="fa-solid fa-book"></i> Course</label>
+            <select id="course" required>
+                <option value="">Select Course</option>
+                <option>COMPUTER SYSTEM APPLICATION</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label><i class="fa-solid fa-layer-group"></i> Module Name</label>
+            <select id="moduleName" required>
+                <option value="">Select Module</option>
+                <option value="CSA">BMTE 1</option>
+                <!-- <option value="DB">Database Systems</option>
+                <option value="OS">Operating Systems</option> -->
+            </select>
+        </div>
+
+        <div class="field">
+            <label><i class="fa-solid fa-hashtag"></i> Module Code</label>
+            <input id="moduleCode" readonly>
+        </div>
+
+        <div class="field">
+            <label><i class="fa-solid fa-user-tie"></i> Lecturer Name</label>
+            <input id="lecturerName" readonly>
+        </div>
+
+        <div class="field">
+            <label><i class="fa-solid fa-users"></i> Nature of Work</label>
+            <select id="natureOfWork" required>
+                <option value="">Select</option>
+                <option>INDIVIDUAL</option>
+                <!-- <option>GROUP</option> -->
+            </select>
+        </div>
+
+        <!-- GROUP OPTIONS -->
+<div id="groupSection" class="group-section hidden">
+
+    <div class="field">
+        <label><i class="fa-solid fa-users-rectangle"></i> Group No</label>
+        <input id="groupNo">
+    </div>
+
+    <h3 class="sub-title">
+        <i class="fa-solid fa-user-group"></i> Group Members
+    </h3>
+
+    <table id="membersTable">
+        <thead>
+            <tr>
+                <th>S/N</th>
+                <th>Member Name</th>
+                <th>Reg No</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <button type="button" class="add-btn" onclick="addMember()">
+        <i class="fa-solid fa-plus"></i> Add Member
+    </button>
+
+</div>
+
+
+        <div class="field">
+            <label><i class="fa-solid fa-calendar-days"></i> Submission Date</label>
+            <input type="date" id="submissionDate" required>
+        </div>
+
+        <div class="field">
+            <label><i class="fa-solid fa-user"></i> Student Name</label>
+            <input id="studentName" required>
+        </div>
+
+        <div class="field">
+            <label><i class="fa-solid fa-id-card"></i> Reg No</label>
+            <input id="regNo" required>
+        </div>
+
+        <!-- <div class="field">
+            <label><i class="fa-solid fa-stream"></i> Stream</label>
+            <input id="stream" required>
+        </div> -->
+
+        <div class="actions">
+            <button type="button" id="previewBtn">
+                <i class="fa-solid fa-eye"></i> Preview
+            </button>
+
+            <button type="submit" id="generateBtn">
+                <i class="fa-solid fa-file-pdf"></i> Generate PDF
+            </button>
+        </div>
+    </form>
+</div>
+<!-- ===== PREVIEW MODAL ===== -->
+<div id="previewModal">
+    <div class="preview-box">
+        <h2>Cover Page Preview</h2>
+        <div id="previewContent"></div>
+        <button onclick="closePreview()">Close</button>
+    </div>
+</div>
+
+
+    <script src="ui.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
